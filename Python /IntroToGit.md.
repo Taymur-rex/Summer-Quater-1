@@ -1,0 +1,6 @@
+What is Git and what is Github, what is the difference between the two? (Git is a tool which help the developers keep track of changes they make to their code over 
+time. ) (Github it's a website where you can store your code and collaborate with others. ) 
+What is the difference between a local repository and a remote repository? (Local repository is the version that exists on your computer.) (Remote repository that exists
+on the cloud, on Github.com.) 
+What does the push command do in Git? (Saves the tracked files in your local repository.)
+What does the commit command do in Git? ( Uploads commited changes from your local repository. ) 
