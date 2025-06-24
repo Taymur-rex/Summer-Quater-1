@@ -1,0 +1,5 @@
+1. What is a variable?  ( A named container in memory that stores a values to be read and reused throughout a programs execution. ) 
+2. How many data types are there, and what are they? ( They're 4 types of data  Integers, Floats, Strings, Booleans. ) 
+3. What is the assignment operator, and what does it do? ( Assigns a value to a variable. ) 
+4. What does it mean to declare a variable? ( Creating a variable. ) 
+5. What does it mean to assign a variable? ( Giving a variable a value to store. ) 
