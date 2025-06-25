@@ -1,0 +1,3 @@
+1. What is CSS? ( What does CSS stand for? CSS stands for Cascading Style Sheets, and it's a stylesheet language used to control the visual presentation of web pages, primarily written in HTML. ) 
+2. What does the CSS box model represent? (The CSS box model is a fundamental concept in web design that describes how browsers render and display elements on a webpage.)
+3. How many different ways can you write CSS code? What are they? ( How many different ways can you write CSS code? What are they? )
