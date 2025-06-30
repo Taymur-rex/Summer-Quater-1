@@ -1,0 +1,5 @@
+1. What is a loop in your own words? ( It repeats over and over. ) 
+2. What are the different types of loops? How are they different from each other? ( for loops, while loops, and do-while loops. ) 
+3. What do the continue and break commands each do? ( In programming, the break and continue statements are used to alter the normal flow of control within loops. )
+4. What is a list in your own words? ( In programming, a list is like a container where you can store a collection of items in a specific order. ) 
+5. There are 2 types of loops. How do you know which to use when using loops? ( For loops are best used when you know the exact number of iterations in advance, while while loops are more suitable when the number of iterations is uncertain and depends on a condition.) 
