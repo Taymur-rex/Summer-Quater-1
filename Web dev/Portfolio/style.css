@@ -48,10 +48,26 @@ nav li a{
 
 nav ul li a::after{
     content: "";
-    width: 100%;
+    width: 0%;
     height: 3px;
     background:#0066ff  ;
     position: absolute ;
     left: 0;
     bottom:-6px;
+    transition: 0.5;
+}
+
+nav ul li a:hover::after{
+    width: 100%;
+}
+
+.header-text{
+    margin-top: 20%;
+    font-size: 30px;
+
+}
+
+header-text h1{
+    font-size: 60px;
+    margin-top: 20px;
 }
