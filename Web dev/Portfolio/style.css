@@ -79,7 +79,7 @@ nav ul li a:hover::after{
 /*-- ----------------about----------------- */
 #about{
     padding: 80px 0; 
-    color: #66ff66;
+    color: #8aed6f;
 }
 
 .row{
@@ -121,7 +121,7 @@ nav ul li a:hover::after{
     content:'';
     width: 0;
     height: 3px;
-    background:burlywood ;
+    background:rgb(162, 160, 160) ;
     position: absolute;
     left: 0;
     bottom: -8px;
@@ -138,6 +138,6 @@ nav ul li a:hover::after{
 }
 
 tab-contents ul li span{
-    color: #b54769;
+    color: #afa8aa;
     font-size: 14px;
 }

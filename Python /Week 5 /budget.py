@@ -1,33 +1,30 @@
-# The amount of money we have to spend 
-funds = 2500
-
-
-budgets = {}
-# A dictionary of our item we spending our budget on 
-# The key is the name of the item, the value 
-expenses = {}
+class Budget():
+    def __init__(self):
+        self.funds = 2500
+        self.budgets = {}
+        self.expenses = {}
 
 
 
 
-# Adds an item to the budget dictionary 
+
 def AddBudget(name, amount):
-    global funds
-    if name is budgets:
+    global self.funds
+    if name is self.budgets:
         raise ValueError("Budget for item already exists")
-    if amount > funds:
+    if amount > self.funds:
         raise ValueError("No can do you are too broke")
-    budgets[name] = amount
-    funds = funds - amount
-    expenses[name] = 0 
-    return funds
+    self.budgets[name] = amount
+    self.funds = self.funds - amount
+    self.expenses[name] = 0 
+    return self.funds
 
 def Spend(name, amount):
-    if name not in expenses:
+    if name not in self.expenses:
         raise ValueError("Item not in budget")
-    expenses[name] += amount
-    budgeted = budgets[name]
-    spent = expenses[name]
+    self.expenses[name] += amount
+    budgeted = self.budgets[name]
+    spent = self.expenses[name]
     return budgeted - spent
     
 
@@ -37,9 +34,9 @@ def PrintBudget():
     totalBudget = 0
     totalSpent = 0
     totalRemaining = 0 
-    for name in budgets:
-        budgeted = budgets[name]
-        spent = expenses[name]
+    for name in self.budgets:
+        budgeted = self.budgets[name]
+        spent = self.expenses[name]
         remainingbudget = budgeted - spent
         print(f'{name:15s}, {budgeted:10.2f}, {spent:10.2f}' 
               f'{remainingbudget:10.2f}')
@@ -55,7 +52,7 @@ def PrintBudget():
 
 
 
-print("Total funds:", funds)
+print("Total self.funds:", self.funds)
 AddBudget("Legos:", 220)
 AddBudget("Rent:", 100)
 AddBudget("Street Fighter:", 30)
