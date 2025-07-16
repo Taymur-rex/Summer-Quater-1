@@ -6,8 +6,8 @@
 }
 
 body{
-    background-color: #032b3e;
-    color: #0c7876;
+    background-color: #0e2a4a;
+    color: #fa9a82;
 }
 
 #header{
@@ -40,7 +40,7 @@ nav ul li{
 }
 
 nav li a{
-    color: aqua;
+    color: rgb(255, 48, 29);
     text-decoration: none;
     font-size: 25px;
     position: relative;
@@ -50,15 +50,16 @@ nav ul li a::after{
     content: "";
     width: 0%;
     height: 3px;
-    background:#0066ff  ;
+    background:#ff466b  ;
     position: absolute ;
     left: 0;
     bottom:-6px;
-    transition: 0.5;
+    transition: 1.5s;
 }
 
 nav ul li a:hover::after{
     width: 100%;
+    background: red;
 }
 
 .header-text{
@@ -73,7 +74,7 @@ nav ul li a:hover::after{
 }
 
 .header-text h1 span {
-    color: #fff;
+    color: #0b0a0a;
 }
 
 /*-- ----------------about----------------- */
