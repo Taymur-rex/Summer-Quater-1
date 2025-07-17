@@ -50,7 +50,7 @@ nav ul li a::after{
     content: "";
     width: 0%;
     height: 3px;
-    background:#ff466b  ;
+    background:#0083f5  ;
     position: absolute ;
     left: 0;
     bottom:-6px;
@@ -138,7 +138,16 @@ nav ul li a:hover::after{
     margin: 10px 0;
 }
 
-tab-contents ul li span{
+.tab-contents ul li span{
     color: #afa8aa;
     font-size: 14px;
 }
+
+.tab-contents {
+    display: none;
+}
+
+.tab-contents.active-tab {
+    display: block;
+}
+
