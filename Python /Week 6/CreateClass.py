@@ -1,4 +1,4 @@
-class Collection:
+
     def __init__(self, movieList, gameList,):
         self.movieList = []
         self.gameList = []
@@ -26,7 +26,7 @@ class Collection:
             self.gameList.remove(movie)
         else:
             print("Movie Not Found")
-    def DisplayGames(self):
+    def DisplayGames(self):class Collection:
         for game in self.gameList:
             print(game)
     def DisplayMovie(self):
