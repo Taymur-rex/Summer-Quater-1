@@ -36,14 +36,42 @@ def GetSrceenCoords(x, y):
 def DrawBackgound():
     for y in range (GRID_HEIGHT):
         for x in range (GRID_WIDTH):
-            square = MAP [y][x]
-            if square == "w":
-                screen.blit("wall", GetSrceenCoords(x, y))
-            elif square == "D":
-                screen.blit("door", GetSrceenCoords(x, y))
+            screen.blit("foor1", GetSrceenCoords(x, y))
 
-def Draw():
+
+
+
+
+def SetupGame():
+    global player 
+    player = pgzrun.Actor("player", anchor=("left", "top"))
+
+
+
+
+
+
+
+
+
+
+def DrawScenery():
+    for y in range (GRID_HEIGHT):
+        for x in range(GRID_WIDTH):
+            square = MAP [y] [x]
+            if square == "W":
+                srceen.blit("wall",GetSrceenCoords(x, y))
+            elif square == "D":
+                srceen.blit("wall",GetSrceenCoords(x, y))
+
+
+
+
+
+def draw():
+    srceen.clear()
     DrawBackgound()
+    DrawScenery()
 
 
 pgzrun.go()
