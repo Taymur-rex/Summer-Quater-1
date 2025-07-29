@@ -5,6 +5,8 @@ import pgzrun
 GRID_WIDTH = 16 # defines How many squares wide the game board is 
 GRID_HEIGHT = 12 # defines How many squares tall the game board is 
 GRID_SIZE = 50 
+GUARDMOVENTERVAL = 0.25 # The time interval for a guard to move 
+
 # Define the size of the game window
 WIDTH = GRID_WIDTH * GRID_SIZE
 HEIGHT = GRID_HEIGHT * GRID_SIZE
@@ -45,8 +47,10 @@ def SetupGame():
     global player # Define player as a global var that be accessed anywhere in your code
     global keysToCollect # A var to store all the keys the player needs to collect
     global gameOver
+    global guards
     player = Actor("player", anchor=("left", "top")) # Create a new Actor & set its anchor
     keysToCollect = []
+    guards = []
     gameOver = False
     for y in range(GRID_HEIGHT): # Loop over each grid position 
         for x in range(GRID_WIDTH):
@@ -60,6 +64,12 @@ def SetupGame():
                 key.pos = GetScreenCoords(x, y)
                 # Add this key to our list of keys
                 keysToCollect.append(key)
+            # Check if the guard is meant to be pleaced in this grid pos
+            elif square == "G":
+                # Create the guard actor(this does not yet draw the actor on screen )
+                guard = Actor("key", anchor= ("left", "top"), pos = GetScreenCoords(x, y,))
+                # Add his actor to the list of guards
+                guards.append(guards)
 #########################
 ########## 1.6 ##########
 def DrawScenery():
@@ -75,6 +85,8 @@ def DrawActors():
     player.draw()
     for key in keysToCollect:
         key.draw()
+    for guard in guards:
+        guard.draw()
 #########################
 
 def DrawGameOver():
@@ -116,7 +128,46 @@ def MovePlayer(dx, dy):
             keysToCollect.remove(key)
             break
     player.pos = GetScreenCoords(x,y)
-#########################
+########### 4.1 ############
+def MoveGuard(guard):
+    global gameOver
+    if gameOver: # if the game is over 
+        return # do othing and end this function call 
+    
+    # Get the x & y grid pos of the player 
+    (playerX, playerY) = GetActorGridPos(player)
+    # Get the x & y grid pos of the guard 
+    (guardX, guardY) = GetActorGridPos(guard)
+
+    # Check if the player is to right of the guard and if the sqaure to the right is not a wall
+    if playerX  > guardX and MAP[guardY][guardX + 1] !="w":
+        # Increase the guard's x grid pos y 1 to move him right 
+        guardX += 1
+    # Check if the player is to the left of the guard and if the sqaure to the left s not wall 
+    elif playerX < guardX and MAP[guardY][guardX -1] !="W":
+        # Decrease the guard's x pos y 1 to move him left 
+        guard  -=  1 
+    # Check if the player is above the guard and if the square above is not a wall
+    elif playerY > guardY and MAP[guardY + 1][guardX] !="W":
+        # Increase the guard's y pos by 1 to move him up 
+        guard += 1
+    # Check if the player is below the guard and if the square below is not a wall 
+    elif playerX < guardY and MAP[guardY - 1][guardX] !="W":
+        #  Decrease the guard's y pos by 1 to move him down 
+        guard -=1
+    
+    # Update the guard actor's pos to the screen 
+    guard.pos = GetScreenCoords(guardX, guardY)
+    # Check if the the guard has touched the player 
+    if guardX == playerX and guardY == playerY:
+        gameOver = true # End the game 
+
+########### 4.2############
+def MoveGuards():
+    for guard in guards:
+        MoveGuard(guard)
+########### 4.2 ############
+
 ########## 2.3 ##########
 # This Function gets a key from the user and moves the player based on the input
 def on_key_down(key):
@@ -131,4 +182,5 @@ def on_key_down(key):
 #########################
 # Start the Pygame 
 SetupGame()
+clock.schedule_interval(MoveGuards, GUARDMOVENTERVAL)
 pgzrun.go()
